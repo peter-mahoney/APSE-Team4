@@ -66,7 +66,7 @@
 **   Revision 1.1 2008/10/29 14:19:16EDT dahardison 
 **   Initial revision
 **   Member added to project c:/MKSDATA/MKS-REPOSITORY/CFS-REPOSITORY/lc/fsw/src/project.pj
-** 
+**   Initial version for APPSE Team 4 project by Peter Mahoney
 *************************************************************************/
 
 /*************************************************************************
