@@ -164,9 +164,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #2 Instrument Powered */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 18,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -176,9 +176,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #3 Instrument Off */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 18,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -188,9 +188,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #4 SBC Error */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 18,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -236,9 +236,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #8 Capacitor A Discharging */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 15,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -248,9 +248,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #9 Capacitor B Discharging */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 17,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -260,9 +260,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #10 Capacitor A Leaking */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 15,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -272,9 +272,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #11 Capacitor B Leaking */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 17,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -284,9 +284,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #12 Capacitor A Broken */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 15,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -296,9 +296,9 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #13 Capacitor B Broken */
     {
-        .DataType                   = LC_WATCH_NOT_USED,
-        .OperatorID                 = LC_NO_OPER,
-        .MessageID                  = 0,
+        .DataType                   = LC_DATA_BYTE,
+        .OperatorID                 = LC_OPER_EQ,
+        .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 17,
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
@@ -438,7 +438,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
         .ComparisonValue.Unsigned32 = 5,
     },
 
-    /* #25 WHE Temp Yellow Low (<=11) */
+    /* #25 WHE Temp Yellow Low (<=9) */
     {
         .DataType                   = LC_DATA_BYTE,
         .OperatorID                 = LC_OPER_LE,
@@ -447,7 +447,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
         .ResultAgeWhenStale         = 0,
-        .ComparisonValue.Unsigned32 = 11,
+        .ComparisonValue.Unsigned32 = 9,
     },
 
     /* #26 WHE Temp Yellow High (>=19) */
@@ -464,7 +464,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
 
     /* #27 WHE Temp Red High (>=30) */
     {
-        .DataType                   = C_DATA_BYTE,
+        .DataType                   = LC_DATA_BYTE,
         .OperatorID                 = LC_OPER_GE,
         .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 19,
@@ -537,7 +537,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
     /* #33 Instrument Temp Mid (low) */
     {
         .DataType                   = LC_DATA_BYTE,
-        .OperatorID                 = LC_OPER_EQ,
+        .OperatorID                 = LC_OPER_GE,
         .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 19,
         .BitMask                    = LC_NO_BITMASK,
@@ -549,7 +549,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
     /* #34 Instrument Temp Mid (high) */
     {
         .DataType                   = LC_DATA_BYTE,
-        .OperatorID                 = LC_OPER_EQ,
+        .OperatorID                 = LC_OPER_LE,
         .MessageID                  = WHE_HK_TLM_MID,
         .WatchpointOffset           = 19,
         .BitMask                    = LC_NO_BITMASK,

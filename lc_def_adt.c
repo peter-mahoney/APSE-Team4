@@ -343,7 +343,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
         .RTSId               = WHE_CAP_A_DISCHARGE_CC,
-        .MaxFailsBeforeRTS   = 3,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1005,
         .EventText           = { "Discharging Capacitor A" },
@@ -366,7 +366,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
         .RTSId               = WHE_CAP_B_DISCHARGE_CC,
-        .MaxFailsBeforeRTS   = 3,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1006,
         .EventText           = { "Discharging Capacitor B" },
@@ -437,7 +437,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .EventID             = 1009,
         .EventText           = { "Closing Louver" },
         .RPNEquation         = { /* (WP_0) */
-                                 25, 28,
+                                 24, 28,
                                  LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
@@ -513,38 +513,36 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #14 Start Observation Cap A*/
+    /* #14 (unused) */
     {
-        .DefaultState        = LC_APSTATE_ACTIVE,
+        .DefaultState        = LC_ACTION_NOT_USED,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = WHE_OBS_START_CC,
-        .MaxFailsBeforeRTS   = 1,
+        .RTSId               = 0,
+        .MaxFailsBeforeRTS   = 0,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { "Observation Starting - Using Cap A" },
+        .EventText           = { " " },
         .RPNEquation         = { /* (WP_0) */
-                                 18,33,34,
-				 LC_RPN_AND,
+                                 0,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #15 Start Observation Cap B */
+    /* #15 (unused) */
     {
-        .DefaultState        = LC_APSTATE_ACTIVE,
+        .DefaultState        = LC_ACTION_NOT_USED,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = WHE_OBS_START_CC,
-        .MaxFailsBeforeRTS   = 1,
+        .RTSId               = 0,
+        .MaxFailsBeforeRTS   = 0,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { "Observation Starting - Using Cap B" },
+        .EventText           = { " " },
         .RPNEquation         = { /* (WP_0) */
-                                 19,33,34,
-				 LC_RPN_ADD,
+                                 0,
                                  LC_RPN_EQUAL
                                }
     },
