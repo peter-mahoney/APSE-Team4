@@ -343,7 +343,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
         .RTSId               = WHE_CAP_A_DISCHARGE_CC,
-        .MaxFailsBeforeRTS   = 1,
+        .MaxFailsBeforeRTS   = 3,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1005,
         .EventText           = { "Discharging Capacitor A" },
@@ -366,7 +366,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
         .RTSId               = WHE_CAP_B_DISCHARGE_CC,
-        .MaxFailsBeforeRTS   = 1,
+        .MaxFailsBeforeRTS   = 3,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1006,
         .EventText           = { "Discharging Capacitor B" },
@@ -443,104 +443,108 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #10 (unused) */
+    /* #10 Instrument Temp Yellow Low */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_ON_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1010,
+        .EventText           = { "Turning Heater On" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 25,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #11 (unused) */
+    /* #11 Heater off if Instrument >=19 */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_OFF_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1011,
+        .EventText           = { "Turning Heater Off" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 26,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #12 (unused) */
+    /* #12 Stop Observation if Temp too high */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_STOP_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1012,
+        .EventText           = { "Stopping Observation due to High Temp " },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 26,1,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #13 (unused) */
+    /* #13 Stop Observation if Temp too low */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_STOP_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1013,
+        .EventText           = { "Stopping Observation due to High Temp" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 25,1,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #14 (unused) */
+    /* #14 Start Observation Cap A*/
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_START_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
+        .EventText           = { "Observation Starting - Using Cap A" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 18,33,34,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #15 (unused) */
+    /* #15 Start Observation Cap B */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_START_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
+        .EventText           = { "Observation Starting - Using Cap B" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 19,33,34,
+				 LC_RPN_ADD,
                                  LC_RPN_EQUAL
                                }
     },
