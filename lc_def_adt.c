@@ -551,36 +551,38 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #16 (unused) */
+    /* #16 (If both discharing and B active, make A active) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
-        .MaxPassiveEvents    = 0,
+        .DefaultState        = LC_APSTATE_ACTIVE
+ 	.MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
-        .RPNEquation         = { /* (WP_0) */
-                                 0,
+        .EventText           = { "Both Cap Discharging; Making A Active" },
+        .RPNEquation         = { 
+                                 8,9,5,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #17 (unused) */
+    /* #17 (If both discharing and A active, make B active) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
-        .RPNEquation         = { /* (WP_0) */
-                                 0,
+        .EventText           = { "Both Cap Discharging; Making A Active" },
+        .RPNEquation         = { 
+                                 8,9,35,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
