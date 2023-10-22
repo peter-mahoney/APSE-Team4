@@ -623,19 +623,20 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #20 (unused) */
+    /* #20 (If A AND B are crit low, stop obs*/
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_STOP_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1020,
+        .EventText           = { "Caps are crit low, stopping obs" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 16,17,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
