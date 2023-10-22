@@ -513,36 +513,40 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #14 (unused) */
+    /* #14 Start Obs if temp is low and cap A charge high */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_START_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1014,
+        .EventText           = { "Start Observation; Cap A supplying power " },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 18,33,34,
+				 LC_RPN_AND,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #15 (unused) */
+    /* #15 Start Obs if temp is low and cap B charge high  */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
-        .MaxPassiveEvents    = 0,
+        .DefaultState        = LC_APSTATE_ACTIVE,
+ 	.MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_START_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1015,
+        .EventText           = { "Start Observation; Cap B supplying power " },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 19,33,34,
+				 LC_RPN_AND,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
