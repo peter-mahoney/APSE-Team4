@@ -1,2 +1,6 @@
+# Tests
+- ran 10+ minutes idle with no crash
+- randomly ran discharges and start_obs at various levels of capacitor charge
+
 # Problems
 - manual start of observation when cap not high enough causes minor damage

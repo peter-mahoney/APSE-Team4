@@ -589,36 +589,36 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #18 (If A is high charge, make it active) */
+    /* #18 (If A is crit high, discharge) */
     {
         .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = WHE_CAP_A_ACTIVE_CC,
+        .RTSId               = WHE_CAP_A_DISCHARGE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1018,
-        .EventText           = { "Cap A is high charge, making it active" },
+        .EventText           = { "Cap A is crit high charge, discharging" },
         .RPNEquation         = { /* (WP_0) */
-                                 18,
+                                 20,
                                  LC_RPN_EQUAL
                                }
     },
-
-    /* #19 (If B is high charge, make it active) */
+ 
+    /* #19 (If B is crit high, discharge) */
     {
         .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = WHE_CAP_B_ACTIVE_CC,
+        .RTSId               = WHE_CAP_A_DISCHARGE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 1019,
-        .EventText           = { "Cap B is high charge, making it active" },
+        .EventText           = { "Cap B is crit high charge, discharging" },
         .RPNEquation         = { /* (WP_0) */
-                                 19,
+                                 21,
                                  LC_RPN_EQUAL
                                }
     },
@@ -651,7 +651,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .RTSId               = WHE_CAP_B_ACTIVE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
+        .EventID             = 1021,
         .EventText           = { "A is Active and Low on obs, switching cap" },
         .RPNEquation         = { /* (WP_0) */
                                  1,5,14,
@@ -670,7 +670,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .RTSId               = WHE_CAP_A_ACTIVE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
+        .EventID             = 1022,
         .EventText           = { "A is Active and Low on obs, switching cap" },
         .RPNEquation         = { /* (WP_0) */
                                  1,35,15,
