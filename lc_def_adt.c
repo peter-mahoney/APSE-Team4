@@ -553,7 +553,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
 
     /* #16 (If both discharing and B active, make A active) */
     {
-        .DefaultState        = LC_APSTATE_ACTIVE
+        .DefaultState        = LC_APSTATE_ACTIVE,
  	.MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
@@ -564,6 +564,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .EventText           = { "Both Cap Discharging; Making A Active" },
         .RPNEquation         = { 
                                  8,9,5,
+				 LC_RPN_AND,
 				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
@@ -582,6 +583,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .EventText           = { "Both Cap Discharging; Making A Active" },
         .RPNEquation         = { 
                                  8,9,35,
+				 LC_RPN_AND,
 				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
