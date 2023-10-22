@@ -623,7 +623,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #20 (If A AND B are crit low, stop obs*/
+    /* #20 (If A AND B are crit low and Obs, stop obs*/
     {
         .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
@@ -635,42 +635,47 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .EventID             = 1020,
         .EventText           = { "Caps are crit low, stopping obs" },
         .RPNEquation         = { /* (WP_0) */
-                                 16,17,
+                                 1,16,17,
+                                 LC_RPN_AND,
                                  LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #21 (unused) */
+    /* #21 (If observing and A is active and low, switch cap) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
+        .EventText           = { "A is Active and Low on obs, switching cap" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 1,5,14,
+                                 LC_RPN_AND,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #22 (unused) */
+    /* #22 (If observing and B is active and low, switch cap) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
         .EventID             = 0,
-        .EventText           = { " " },
+        .EventText           = { "A is Active and Low on obs, switching cap" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 1,35,15,
+                                 LC_RPN_AND,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
