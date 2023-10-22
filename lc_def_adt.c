@@ -437,76 +437,78 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .EventID             = 1009,
         .EventText           = { "Closing Louver" },
         .RPNEquation         = { /* (WP_0) */
-                                 25, 28,
+                                 24, 28,
                                  LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #10 (unused) */
+    /* #10 Instrument Temp Yellow Low */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_ON_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1010,
+        .EventText           = { "Turning Heater On" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 25,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #11 (unused) */
+    /* #11 Heater off if Instrument >=19 */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_OFF_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1011,
+        .EventText           = { "Turning Heater Off" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 26,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #12 (unused) */
+    /* #12 Stop Observation if Temp too high */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_STOP_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1012,
+        .EventText           = { "Stopping Observation due to High Temp " },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 26,1,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #13 (unused) */
+    /* #13 Stop Observation if Temp too low */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_OBS_STOP_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1013,
+        .EventText           = { "Stopping Observation due to High Temp" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 25,1,
+				 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
