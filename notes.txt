@@ -1,0 +1,2 @@
+# Problems
+- manual start of observation when cap not high enough causes minor damage
