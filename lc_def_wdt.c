@@ -375,7 +375,7 @@ LC_WDTEntry_t LC_DefaultWDT[LC_MAX_WATCHPOINTS] =
         .BitMask                    = LC_NO_BITMASK,
         .CustomFuncArgument         = 0,
         .ResultAgeWhenStale         = 0,
-        .ComparisonValue.Unsigned32 = 85,
+        .ComparisonValue.Unsigned32 = 80,
     },
 
     /* #20 CAP A Critical High Charge */
