@@ -560,7 +560,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .RTSId               = WHE_CAP_A_ACTIVE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
+        .EventID             = 1016,
         .EventText           = { "Both Cap Discharging; Making A Active" },
         .RPNEquation         = { 
                                  8,9,5,
@@ -579,7 +579,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
         .RTSId               = WHE_CAP_B_ACTIVE_CC,
         .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
+        .EventID             = 1017,
         .EventText           = { "Both Cap Discharging; Making A Active" },
         .RPNEquation         = { 
                                  8,9,35,
@@ -589,36 +589,36 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #18 (unused) */
+    /* #18 (If A is high charge, make it active) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1018,
+        .EventText           = { "Cap A is high charge, making it active" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 18,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #19 (unused) */
+    /* #19 (If B is high charge, make it active) */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1019,
+        .EventText           = { "Cap B is high charge, making it active" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 19,
                                  LC_RPN_EQUAL
                                }
     },
