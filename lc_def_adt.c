@@ -66,7 +66,7 @@
 **   Revision 1.1 2008/10/29 14:19:16EDT dahardison 
 **   Initial revision
 **   Member added to project c:/MKSDATA/MKS-REPOSITORY/CFS-REPOSITORY/lc/fsw/src/project.pj
-**   Initial version for APPSE Team 4 project by Peter Mahoney
+** 
 *************************************************************************/
 
 /*************************************************************************
@@ -255,7 +255,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                  LC_RPN_AND,
                                  19,
                                  LC_RPN_AND,
-                                 14, 18,
+                                 16, 18,
                                  LC_RPN_OR,
                                  LC_RPN_NOT,
                                  LC_RPN_AND,
@@ -281,7 +281,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                  LC_RPN_AND,
                                  7,
                                  LC_RPN_AND,
-                                 15, 19,
+                                 17, 19,
                                  LC_RPN_OR,
                                  LC_RPN_NOT,
                                  LC_RPN_AND,
@@ -353,7 +353,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                  LC_RPN_AND,
                                  6,
                                  LC_RPN_AND,
-                                 22,
+                                 18,
                                  LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
@@ -375,7 +375,7 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                  LC_RPN_AND,
                                  7,
                                  LC_RPN_AND,
-                                 23,
+                                 19,
                                  LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
@@ -443,36 +443,39 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #10 (unused) */
+    /* #10 WHE Turn On Heater */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_ON_CC,
+        .MaxFailsBeforeRTS   = 5,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1010,
+        .EventText           = { "Turning On Heater" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 24, 29,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #11 (unused) */
+    /* #11 WHE Turn Off Heater */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_THERM_HTR_OFF_CC,
+        .MaxFailsBeforeRTS   = 5,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1011,
+        .EventText           = { "Turning Off Heater" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 26, 29,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
@@ -545,70 +548,77 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #16 (unused) */
+    /* #16 WHE Set Capacitor B Active, Cap A Critical High */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1016,
+        .EventText           = { "Setting Cap B Active" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 20, 5,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #17 (unused) */
+    /* #17 WHE Set Capacitor A Active, Cap B Critical High */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_ACTIVE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1017,
+        .EventText           = { "Setting Cap A Active" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 21, 5,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #18 (unused) */
+    /* #18 WHE Emergency Discharge Cap A Critical High */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_DISCHARGE_CC,
+        .MaxFailsBeforeRTS   = 2,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1018,
+        .EventText           = { "Emergency Discharge Cap A" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 20, 9,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #19 (unused) */
+    /* #19 WHE Emergency Discharge Cap B Critical High */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_DISCHARGE_CC,
+        .MaxFailsBeforeRTS   = 2,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1019,
+        .EventText           = { "Emergency Discharge Cap B" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 21, 8,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
@@ -664,36 +674,63 @@ LC_ADTEntry_t LC_DefaultADT[LC_MAX_ACTIONPOINTS] =
                                }
     },
 
-    /* #23 (unused) */
+    /* #23 WHE Early Discharge Cap A */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_A_DISCHARGE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1023,
+        .EventText           = { "Discharging Capacitor A Early" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 7,5,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
+                                 6,
+                                 LC_RPN_AND,
+                                 22,
+                                 LC_RPN_AND,
+                                 23,
+                                 LC_RPN_AND,
+                                 19, 
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
+                                 1,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
 
-    /* #24 (unused) */
+     /* #24 WHE Early Discharge Cap B */
     {
-        .DefaultState        = LC_ACTION_NOT_USED,
+        .DefaultState        = LC_APSTATE_ACTIVE,
         .MaxPassiveEvents    = 0,
         .MaxPassFailEvents   = 0,
         .MaxFailPassEvents   = 0,
-        .RTSId               = 0,
-        .MaxFailsBeforeRTS   = 0,
+        .RTSId               = WHE_CAP_B_DISCHARGE_CC,
+        .MaxFailsBeforeRTS   = 1,
         .EventType           = CFE_EVS_INFORMATION,
-        .EventID             = 0,
-        .EventText           = { " " },
+        .EventID             = 1024,
+        .EventText           = { "Discharging Capacitor B Early" },
         .RPNEquation         = { /* (WP_0) */
-                                 0,
+                                 5, 6,
+                                 LC_RPN_AND,
+                                 7,
+                                 LC_RPN_AND,
+                                 22,
+                                 LC_RPN_AND,
+                                 23,
+                                 LC_RPN_AND,
+                                 18, 
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
+                                 1,
+                                 LC_RPN_NOT,
+                                 LC_RPN_AND,
                                  LC_RPN_EQUAL
                                }
     },
